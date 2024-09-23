@@ -6,10 +6,11 @@ import ItemList from "./item-list";
 export default function Page() {
     return (
       <main>
-        <h1>Shopping List - Week 3</h1>
+        <h1 className="m-4 text-3xl font-bold">Shopping List</h1>
+        <h1 className="m-4 text-xl ">Week 3</h1>
         <ItemList/>
         <p>
-        Go back to <Link href="/" className="underline">Home page</Link>
+        <Link href="/" className="m-4 text-lg underline">Home</Link>
         </p>
       </main>
       
