@@ -10,7 +10,7 @@ export default function Home(){
         <li className="hover:bg-amber-200 hover:text-stone-900 max-w-32 rounded-full">
           <Link href="/week-2/">Week 2</Link>
         </li>
-        <li className="hover:underline  decoration-red-700">
+        <li className="hover:underline  decoration-red-700 max-w-32">
           <Link href="/week-3/">Week 3</Link>
         </li>
         <li>
