@@ -7,7 +7,7 @@ export default function Home(){
       CPRG 306: Web Development 2<h2>Links to my assignments</h2>
       <br></br>
       <div>
-        <li className="hover:bg-amber-200 hover:text-stone-900 max-w-xs rounded-full">
+        <li className="hover:bg-amber-200 hover:text-stone-900 max-w-32 rounded-full">
           <Link href="/week-2/">Week 2</Link>
         </li>
         <li className="hover:underline  decoration-red-700">
