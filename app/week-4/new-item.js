@@ -34,7 +34,12 @@ export default function NewItem() {
         >Increment</button>
 
         <button
-        onClick={decrement} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
+        onClick={decrement} 
+        // className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
+        className={`${
+            quantity === 1 ? "bg-gray-500 cursor-not-allowed" : "bg-red-500 hover:bg-red-700"
+          } text-white font-bold py-2 px-2 rounded`}
+          disabled={quantity === 1}
         >Decrement</button>
 
         <button
