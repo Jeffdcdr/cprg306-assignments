@@ -26,7 +26,11 @@ export default function NewItem() {
 
         <button 
         onClick={increment} 
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"        
+        // className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"  
+        className={`${
+            quantity === 20 ? "bg-gray-500 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"
+          } text-white font-bold py-2 px-2 rounded`}
+          disabled={quantity === 20}      
         >Increment</button>
 
         <button
