@@ -30,7 +30,7 @@ export default function NewItem() {
         className={`${
             quantity === 20 ? "bg-gray-500 cursor-not-allowed" : "bg-blue-500 hover:bg-blue-700"
           } text-white font-bold py-2 px-2 rounded`}
-          disabled={quantity === 20}      
+        //   disabled={quantity === 20}      
         >Increment</button>
 
         <button
@@ -39,7 +39,7 @@ export default function NewItem() {
         className={`${
             quantity === 1 ? "bg-gray-500 cursor-not-allowed" : "bg-red-500 hover:bg-red-700"
           } text-white font-bold py-2 px-2 rounded`}
-          disabled={quantity === 1}
+        //   disabled={quantity === 1}
         >Decrement</button>
 
         <button
