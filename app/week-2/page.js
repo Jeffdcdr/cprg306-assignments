@@ -7,6 +7,7 @@ export default function Page() {
         <Studentinfo/>
         <p>
         Go back to <Link href="/" className="underline">Home page</Link>
+        <br></br>
         </p>
       </main>
       

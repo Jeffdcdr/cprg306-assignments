@@ -6,6 +6,7 @@ export default function Page() {
       <main>
         <h1>Shopping List</h1>
         <NewItem/>
+        <br></br>
         <p>
         Go back to <Link href="/" className="underline">Home page</Link>
         </p>

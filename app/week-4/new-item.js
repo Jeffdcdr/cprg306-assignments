@@ -3,21 +3,39 @@
 import { useState } from "react";
 
 export default function NewItem() {
-    const [quantity, setQuantity] = useState(1);
-    const increment = () => setQuantity(quantity + 1);
-    const decrement = () => setQuantity(quantity - 1);
+    
+    let [quantity, setQuantity] = useState(1);
+    
+    // for increment function
+    let increment = () => {
+        if (quantity < 20) 
+            setQuantity(quantity + 1)}; 
 
-return (
+    // for decrement function
+    let decrement = () => { 
+        if (quantity > 1)
+            setQuantity(quantity - 2)};
+
+    // for reset function
+    const reset = () => setQuantity(1);
+
+    return (
     <div>
-        <p>Current Quantity: {quantity}</p>
+        <h3>Current Quantity: {quantity}</h3>
+        <br></br>
+
         <button 
-        onClick={increment}
+        onClick={increment} 
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"        
         >Increment</button>
+
         <button
-        onclick = {decrement}
-        >Decrement
-        </button>
+        onclick={decrement} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
+        >Decrement</button>
+
+        <button
+        onClick={reset} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-2 rounded"        
+        >Reset</button>
     </div>
 );
-
 }
