@@ -14,7 +14,7 @@ export default function NewItem() {
     // for decrement function
     let decrement = () => { 
         if (quantity > 1)
-            setQuantity(quantity - 2)};
+            setQuantity(quantity - 1)};
 
     // for reset function
     const reset = () => setQuantity(1);
@@ -30,7 +30,7 @@ export default function NewItem() {
         >Increment</button>
 
         <button
-        onclick={decrement} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
+        onClick={decrement} className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
         >Decrement</button>
 
         <button
