@@ -11,10 +11,11 @@ export default function NewItem() {
   };
 
   // for decrement function
-  let decrement = () => {
-    if (quantity > 1) setQuantity(quantity - 1);
-  };
+  //   let decrement = () => {
+  //     if (quantity > 1) setQuantity(quantity - 1);
+  //   };
 
+  let decrement = () => quantity > 1 ? setQuantity(quantity - 1) : null;
   
 
 
