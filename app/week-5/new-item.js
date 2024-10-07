@@ -4,67 +4,92 @@ import { useState } from "react";
 
 export default function NewItem() {
   let [quantity, setQuantity] = useState(1);
-  const [name, setName] = useState("");
-  const [category, setCategory] = useState("produce");
+  let [name, setName] = useState("");
+  let [category, setCategory] = useState("produce");
 
-  // for increment function
-  // let increment = () => {
-  //   if (quantity < 20) setQuantity(quantity + 1);
-  // };
-  
-  let increment = () => quantity < 20? setQuantity(quantity + 1) : null;
+  let increment = () => (quantity < 20 ? setQuantity(quantity + 1) : null);
+  let decrement = () => (quantity > 1 ? setQuantity(quantity - 1) : null);
 
-  // for decrement function
-  //   let decrement = () => {
-  //     if (quantity > 1) setQuantity(quantity - 1);
-  //   };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    let item = { name, quantity, category };
+    console.log(item);
+    alert(`You added ${name} ${quantity} to the ${category} category`);
 
-  let decrement = () => quantity > 1 ? setQuantity(quantity - 1) : null;
-  
+    //reset form
+    setQuantity(1);
+    setCategory("produce");
+    setName("");
 
-
-  // for reset function
-  const reset = () => setQuantity(1);
+    if (name.length === 0) {
+      alert("Please enter a name");
+    }
+  };
 
   return (
-    <div>
-      <h3>Current Quantity: {quantity}</h3>
-      <br></br>
+    <form>
+      <label htmlFor="name">Name: </label>
+      <input
+        className="text-black"
+        type="text"
+        id="name"
+        value={name}
+        onChange={(event) => setName(event.target.value)}
+      />
 
-      <button
-        onClick={increment}
-        // className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
-        className={`${
-          quantity === 20
-            ? "bg-gray-500 cursor-not-allowed"
-            : "bg-blue-500 hover:bg-blue-700"
-        } text-white font-bold py-2 px-2 rounded`}
-        //   disabled={quantity === 20}
+      <label htmlFor="category">Category: </label>
+      <select
+        className="text-black"
+        id="category"
+        value={category}
+        onChange={(event) => setCategory(event.target.value)}
       >
-        {/* Increment */}
-        +
-      </button>
+        <option value="produce">Produce</option>
+        <option value="dairy">Dairy</option>
+        <option value="bakery">Bakery</option>
+        <option value="meat">Meat</option>
+        <option value="frozen foods">Frozen foods</option>
+        <option value="canned goods">Canned goods</option>
+        <option value="dry goods">Dry Goods</option>
+        <option value="beverages">Beverages</option>
+        <option value="snacks">Snacks</option>
+        <option value="other">Other</option>
+      </select>
 
-      <button
-        onClick={decrement}
-        // className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-2 rounded"
-        className={`${
-          quantity === 1
-            ? "bg-gray-500 cursor-not-allowed"
-            : "bg-red-500 hover:bg-red-700"
-        } text-white font-bold py-2 px-2 rounded`}
-        //   disabled={quantity === 1}
-      >
-        {/* Decrement */}
-        +
-      </button>
+      <div>
+        <h3>Current Quantity: {quantity}</h3>
+        <br></br>
 
+        <button
+          type="button"
+          onClick={increment}
+          className={`${
+            quantity === 20
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-green-500 hover:bg-green-700"
+          } text-white font-bold py-2 px-2 rounded`}
+        >
+          {/* Increment */}+
+        </button>
+
+        <button
+          type="button"
+          onClick={decrement}
+          className={`${
+            quantity === 1
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-red-500 hover:bg-red-700"
+          } text-white font-bold py-2 px-2 rounded`}
+        >
+          {/* Decrement */}-
+        </button>
+      </div>
       <button
-        onClick={reset}
-        className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-2 rounded"
+        onClick={handleSubmit}
+        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
       >
-        Reset
+        Add Item
       </button>
-    </div>
+    </form>
   );
 }
