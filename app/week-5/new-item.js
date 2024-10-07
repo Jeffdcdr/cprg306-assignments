@@ -20,19 +20,17 @@ export default function NewItem() {
     setQuantity(1);
     setCategory("produce");
     setName("");
-      
   };
 
   return (
-    <form>
+    <form className="text-2xl mx-4 my-4">
       <label htmlFor="name">Name: </label>
       <input
         className="text-black"
-        type="text" required
+        type="text"
         id="name"
         value={name}
         onChange={(event) => setName(event.target.value)}
-        
       />
 
       <label htmlFor="category">Category: </label>
@@ -54,42 +52,40 @@ export default function NewItem() {
         <option value="other">Other</option>
       </select>
 
+      <br></br>
+      <h3>Current Quantity: {quantity}</h3>
+      <br></br>
+
       <div>
-        <h3>Current Quantity: {quantity}</h3>
-        <br></br>
-
-        <button
-          type="button"
-          onClick={increment} 
-          className={`${
-            quantity === 20
-              ? "bg-gray-500 cursor-not-allowed"
-              : "bg-green-500 hover:bg-green-700"
-          } text-white font-bold py-2 px-2 rounded`}
-        >
-          {/* Increment */}+
-        </button>
-
-        <button
-          type="button"
-          onClick={decrement}
-          className={`${
-            quantity === 1
-              ? "bg-gray-500 cursor-not-allowed"
-              : "bg-red-500 hover:bg-red-700"
-          } text-white font-bold py-2 px-2 rounded`}
-        >
-          {/* Decrement */}-
-        </button>
-      </div>
-      <button
+      <input //increment button
         type="button"
-        onClick= {handleSubmit}
+        value="+"
+        onClick={increment}
+        className={`${
+          quantity === 20
+            ? "bg-gray-500 cursor-not-allowed"
+            : "bg-green-500 hover:bg-green-700"
+        } text-white font-bold py-2 px-2 rounded`}
+      />
+
+      <input //decrement button
+        type="button"
+        value="-"
+        onClick={decrement}
+        className={`${
+          quantity === 1
+            ? "bg-gray-500 cursor-not-allowed"
+            : "bg-red-500 hover:bg-red-700"
+        } text-white font-bold py-2 px-2 rounded`}
+      />
+
+      <input //submit button
+        type="submit"
+        value="Submit"
+        onClick={handleSubmit}
         className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
-      >
-        Submit
-        
-      </button>
+      />
+      </div>
     </form>
   );
 }
