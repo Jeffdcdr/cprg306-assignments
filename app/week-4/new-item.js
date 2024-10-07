@@ -6,10 +6,12 @@ export default function NewItem() {
   let [quantity, setQuantity] = useState(1);
 
   // for increment function
-  let increment = () => {
-    if (quantity < 20) setQuantity(quantity + 1);
-  };
-
+  // let increment = () => {
+  //   if (quantity < 20) setQuantity(quantity + 1);
+  // };
+  
+  let increment = () => quantity < 20? setQuantity(quantity + 1) : null;
+  
   // for decrement function
   //   let decrement = () => {
   //     if (quantity > 1) setQuantity(quantity - 1);
