@@ -54,7 +54,7 @@ export default function NewItem() {
         //   disabled={quantity === 1}
       >
         {/* Decrement */}
-        +
+        -
       </button>
 
       <button
