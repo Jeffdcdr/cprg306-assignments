@@ -11,7 +11,7 @@ export default function NewItem() {
   // };
   
   let increment = () => quantity < 20? setQuantity(quantity + 1) : null;
-  
+
   // for decrement function
   //   let decrement = () => {
   //     if (quantity > 1) setQuantity(quantity - 1);
@@ -39,7 +39,8 @@ export default function NewItem() {
         } text-white font-bold py-2 px-2 rounded`}
         //   disabled={quantity === 20}
       >
-        Increment
+        {/* Increment */}
+        +
       </button>
 
       <button
@@ -52,7 +53,8 @@ export default function NewItem() {
         } text-white font-bold py-2 px-2 rounded`}
         //   disabled={quantity === 1}
       >
-        Decrement
+        {/* Decrement */}
+        +
       </button>
 
       <button
