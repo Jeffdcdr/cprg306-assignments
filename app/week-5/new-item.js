@@ -6,12 +6,19 @@ export default function NewItem() {
   let [quantity, setQuantity] = useState(1);
   let [name, setName] = useState("");
   let [category, setCategory] = useState("produce");
+  let [nameError, setNameError] = useState("");
 
   let increment = () => (quantity < 20 ? setQuantity(quantity + 1) : null);
   let decrement = () => (quantity > 1 ? setQuantity(quantity - 1) : null);
 
   const handleSubmit = (event) => {
     event.preventDefault();
+
+    if (name === "") {
+      alert("Please enter a name!");
+      return;
+    }
+
     let item = { name, quantity, category };
     console.log(item);
     alert(`You added ${quantity} ${name} to the ${category} category`);
@@ -20,10 +27,23 @@ export default function NewItem() {
     setQuantity(1);
     setCategory("produce");
     setName("");
+
+    //error handling
+    if (name === "") {
+      alert("Please enter a name!");
+      return;
+    }
+    // } else {
+    //   setNameError("");
+    // }
   };
 
   return (
-    <form className="text-2xl mx-4 my-4">
+    <form
+      // onSubmit={(event) => handleSubmit(event)}
+      onSubmit={handleSubmit}
+      className="text-2xl mx-4 my-4"
+    >
       <label htmlFor="name">Name: </label>
       <input
         className="text-black"
@@ -32,6 +52,7 @@ export default function NewItem() {
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
+      {/* {nameError && <p className="text-red-500">{nameError}</p>} */}
 
       <label htmlFor="category">Category: </label>
       <select
@@ -57,34 +78,40 @@ export default function NewItem() {
       <br></br>
 
       <div>
-      <input //increment button
-        type="button"
-        value="+"
-        onClick={increment}
-        className={`${
-          quantity === 20
-            ? "bg-gray-500 cursor-not-allowed"
-            : "bg-green-500 hover:bg-green-700"
-        } text-white font-bold py-2 px-2 rounded`}
-      />
-
-      <input //decrement button
-        type="button"
-        value="-"
-        onClick={decrement}
-        className={`${
-          quantity === 1
-            ? "bg-gray-500 cursor-not-allowed"
-            : "bg-red-500 hover:bg-red-700"
-        } text-white font-bold py-2 px-2 rounded`}
-      />
-
-      <input //submit button
-        type="submit"
-        value="Submit"
-        onClick={handleSubmit}
-        className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
-      />
+        <input //increment button
+          type="button"
+          value="+"
+          onClick={increment}
+          className={`${
+            quantity === 20
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-green-500 hover:bg-green-700"
+          } text-white font-bold py-2 px-2 rounded`}
+        />
+        <input //decrement button
+          type="button"
+          value="-"
+          onClick={decrement}
+          className={`${
+            quantity === 1
+              ? "bg-gray-500 cursor-not-allowed"
+              : "bg-red-500 hover:bg-red-700"
+          } text-white font-bold py-2 px-2 rounded`}
+        />
+        <input //submit button
+          type="submit"
+          value="Submit"
+          // onClick={handleSubmit}
+          className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
+          // className={`${
+          //   name === ""
+          //     ? "bg-gray-500 "
+          //     : "bg-blue-500 hover:bg-blue-700"
+          // } text-white font-bold py-2 px-2 rounded`}
+          // onClick={() =>
+          //   name === "" ? alert("Please enter a name!") : handleSubmit()
+          // }
+        />
       </div>
     </form>
   );
