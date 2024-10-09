@@ -14,10 +14,18 @@ export default function NewItem() {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    if (name === "") {
-      alert("Please enter a name!");
+     //error handling
+     if (name === "") {
+      setNameError("Please enter a name!");
       return;
+    } else {
+      setNameError(""); // Clear error if name is valid
     }
+
+    // if (name === "") {
+    //   alert("Please enter a name!");
+    //   return;
+    // }
 
     let item = { name, quantity, category };
     console.log(item);
@@ -28,14 +36,7 @@ export default function NewItem() {
     setCategory("produce");
     setName("");
 
-    //error handling
-    if (name === "") {
-      alert("Please enter a name!");
-      return;
-    }
-    // } else {
-    //   setNameError("");
-    // }
+   
   };
 
   return (
@@ -52,7 +53,7 @@ export default function NewItem() {
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
-      {/* {nameError && <p className="text-red-500">{nameError}</p>} */}
+      {nameError && <p className="text-red-500">{nameError}</p>}
 
       <label htmlFor="category">Category: </label>
       <select
