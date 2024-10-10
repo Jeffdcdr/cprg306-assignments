@@ -13,20 +13,6 @@ export default function NewItem() {
 
   const handleSubmit = (event) => {
     event.preventDefault();
-
-     //error handling
-     if (name === "") {
-      setNameError("Please enter a name!");
-      return;
-    } else {
-      setNameError(""); // Clear error if name is valid
-    }
-
-    // if (name === "") {
-    //   alert("Please enter a name!");
-    //   return;
-    // }
-
     let item = { name, quantity, category };
     console.log(item);
     alert(`You added ${quantity} ${name} to the ${category} category`);
@@ -35,8 +21,6 @@ export default function NewItem() {
     setQuantity(1);
     setCategory("produce");
     setName("");
-
-   
   };
 
   return (
@@ -53,7 +37,6 @@ export default function NewItem() {
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
-      {nameError && <p className="text-red-500">{nameError}</p>}
 
       <label htmlFor="category">Category: </label>
       <select
@@ -99,6 +82,7 @@ export default function NewItem() {
               : "bg-red-500 hover:bg-red-700"
           } text-white font-bold py-2 px-2 rounded`}
         />
+        
         <input //submit button
           type="submit"
           value="Submit"
