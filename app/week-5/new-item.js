@@ -61,13 +61,13 @@ export default function NewItem() {
           <option value="other">Other</option>
         </select>
       
-        <div className=" flex justify-between p-2 mt-1 mb-1 rounded-md bg-white text-black w-36">
+        <div  className=" flex justify-between p-2 mt-1 mb-1 mr-1 rounded-md bg-white text-black w-36">
         <h3 className="p-2"> {quantity}</h3>
         
         <div>
         <input //increment button
           type="button"
-          value=" + "
+          value="▲"
           onClick={increment}
           className={`${
             quantity === 20
@@ -77,7 +77,7 @@ export default function NewItem() {
         />
         <input //decrement button
           type="button"
-          value="  - "
+          value="▼"
           onClick={decrement}
           className={`${
             quantity === 1
