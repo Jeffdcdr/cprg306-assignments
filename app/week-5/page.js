@@ -6,7 +6,7 @@ export default function Page() {
       <main 
       className="flex justify-center w-full"
       >
-        <h1>Shopping List</h1>
+        <h1 className="m-4 text-3xl font-bold">Shopping List</h1>
         <NewItem/>
         <br></br>
         <p>
