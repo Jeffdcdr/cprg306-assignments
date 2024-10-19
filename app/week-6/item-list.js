@@ -5,7 +5,23 @@ import itemsJson from "./items.json";
 
 export default function ItemList() {
   const [sortby, setSortby] = useState("name");
-  let items = [...itemsJson];
+
+  // let items = [...itemsJson] - original code to render what's on the JSON file
+
+  let items = [...itemsJson].sort((a, b) => {
+    // added sort function to sort the items
+    if (sortby === "name") {
+      return a.name.localeCompare(b.name);
+    } else if (sortby === "category") {
+      return a.category.localeCompare(b.category);
+    } else {
+      return 0;
+    }
+  });
+
+  const handleItemClick = (value) => {
+    setSortby(value);
+  };
 
   return (
     <div>
@@ -14,17 +30,25 @@ export default function ItemList() {
         <input
           type="button"
           value="Name"
-          className="bg-orange-500 p-1 m-2 w-28"
+          // className="bg-green-600 p-1 m-2 w-28"
+          className={`p-1 m-2 w-28 ${sortby === "name" ? "bg-green-600" : "bg-green-800"}`}
+            //  className={`p-1 m-2 w-28 ${sortby === value ? "bg-green-600" : "bg-green-800"}`}
+
+          // onClick={() => setSortby("name")}
+          onClick={() => handleItemClick("name")}
         ></input>
         <input
           type="button"
           value="Category"
-          className="bg-orange-500 p-1 m-2 w-28"
+          // className="bg-green-600 p-1 m-2 w-28"
+          className={`p-1 m-2 w-28 ${sortby === "category" ? "bg-green-600" : "bg-green-800"}`}
+          // onClick={() => setSortby("category")}
+          onClick={() => handleItemClick("category")}
         ></input>
         <input
           type="button"
           value="Grouped Category"
-          className="bg-orange-700 p-1 m-2 w-28 h-10"
+          className="bg-green-800 p-1 m-2 w-28 h-10"
         ></input>
       </div>
 
