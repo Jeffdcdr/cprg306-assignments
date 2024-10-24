@@ -7,10 +7,7 @@ export default function ItemList() {
   const [sortby, setSortby] = useState("name");
   const [groupedCategory, setGroupedCategory] = useState(null); // added to handle grouped category
 
-  // let items = [...itemsJson] - original code to render what's on the JSON file
-
   let items = [...itemsJson].sort((a, b) => {
-    // added the built in sort to sort the items
     if (sortby === "name") {
       return a.name.localeCompare(b.name);
     } else if (sortby === "category") {
@@ -29,15 +26,7 @@ export default function ItemList() {
       return accumulator;
     }, {});
 
-    // setGroupedCategory(groupedItems);
-    // setSortby("grouped category");
-    // };
-
-    // Sort the items inside each category by name
-    Object.keys(groupedItems).forEach((category) => {
-      groupedItems[category].sort((a, b) => a.name.localeCompare(b.name));
-    });
-
+    // Sort categories
     const sortedGroupedItems = Object.keys(groupedItems)
       .sort((a, b) => a.localeCompare(b))
       .reduce((accumulator, category) => {
@@ -45,7 +34,12 @@ export default function ItemList() {
         return accumulator;
       }, {});
     setGroupedCategory(sortedGroupedItems);
-    setSortby("grouped category")
+    setSortby("grouped category");
+
+    // Sort items in each category
+    Object.keys(groupedItems).forEach((category) => {
+      groupedItems[category].sort((a, b) => a.name.localeCompare(b.name));
+    });
   };
 
   const handleItemClick = (value) => {
@@ -62,23 +56,17 @@ export default function ItemList() {
         <input
           type="button"
           value="Name"
-          // className="bg-green-600 p-1 m-2 w-28"
           className={`p-1 m-2 w-24 rounded-md ${
             sortby === "name" ? "bg-sky-600" : "bg-sky-800"
           }`}
-          //  className={`p-1 m-2 w-28 ${sortby === value ? "bg-green-600" : "bg-green-800"}`}
-
-          // onClick={() => setSortby("name")}
           onClick={() => handleItemClick("name")}
         />
         <input
           type="button"
           value="Category"
-          // className="bg-green-600 p-1 m-2 w-28"
           className={`p-1 m-2 w-24 rounded-md ${
             sortby === "category" ? "bg-sky-600" : "bg-sky-800"
           }`}
-          // onClick={() => setSortby("category")}
           onClick={() => handleItemClick("category")}
         />
         <input
@@ -87,7 +75,6 @@ export default function ItemList() {
           className={`p-1 m-2 w-40 rounded-md ${
             sortby === "grouped category" ? "bg-sky-600" : "bg-sky-800"
           }`}
-          // onClick={() => handleGroupedCategory("grouped category")}
           onClick={handleGroupedCategory}
         />
       </div>
