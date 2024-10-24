@@ -51,12 +51,13 @@ export default function ItemList() {
     <div>
       <div className="ml-4">
         <label htmlFor="sortby" className="text-xl">
-          Sort by: {sortby}
+          Sort by: 
+          {/* {sortby} */}
         </label>
         <input
           type="button"
           value="Name"
-          className={`p-1 m-2 w-24 rounded-md ${
+          className={`cursor-pointer p-1 m-2 w-24 rounded-md ${
             sortby === "name" ? "bg-sky-600" : "bg-sky-800"
           }`}
           onClick={() => handleItemClick("name")}
@@ -64,7 +65,7 @@ export default function ItemList() {
         <input
           type="button"
           value="Category"
-          className={`p-1 m-2 w-24 rounded-md ${
+          className={`cursor-pointer p-1 m-2 w-24 rounded-md ${
             sortby === "category" ? "bg-sky-600" : "bg-sky-800"
           }`}
           onClick={() => handleItemClick("category")}
@@ -72,7 +73,7 @@ export default function ItemList() {
         <input
           type="button"
           value="Grouped Category"
-          className={`p-1 m-2 w-40 rounded-md ${
+          className={`cursor-pointer p-1 m-2 w-40 rounded-md ${
             sortby === "grouped category" ? "bg-sky-600" : "bg-sky-800"
           }`}
           onClick={handleGroupedCategory}
