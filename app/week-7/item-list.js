@@ -3,11 +3,11 @@
 import { useState } from "react";
 // import itemsJson from "./items.json";
 
-export default function ItemList({ itemsJson }) {
+export default function ItemList({ items }) {
   const [sortby, setSortby] = useState("name");
-  const [groupedCategory, setGroupedCategory] = useState(null); // added to handle grouped category
+  
 
-  const items = [...itemsJson].sort((a, b) => {
+  const sortedItems = [...items].sort((a, b) => {
     if (sortby === "name") {
       return a.name.localeCompare(b.name);
     } else if (sortby === "category") {
@@ -18,8 +18,7 @@ export default function ItemList({ itemsJson }) {
   });
 
   const handleItemClick = (value) => {
-    setSortby(value);
-    setGroupedCategory(null);
+    setSortby(value);    
   };
 
   return (
@@ -48,7 +47,7 @@ export default function ItemList({ itemsJson }) {
       </div>
 
       <ul>
-        {items.map((item) => (
+        {sortedItems.map((item) => (
           <li key={item.id} className="p-2 m-4 bg-zinc-900 max-w-sm">
             <h2 className="text-xl font-semibold"> {item.name} </h2>
             <div className="text-sm">
