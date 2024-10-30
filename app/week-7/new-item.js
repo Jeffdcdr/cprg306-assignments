@@ -16,6 +16,7 @@ export default function NewItem({ onAddItem }) {
     const newId = Math.floor(Math.random() * 1000000);
     const NewItem = { id: newId, name: name, category: category, quantity: quantity };
     onAddItem(NewItem);
+    console.log("New item added: ", NewItem);
 
     //reset form
     setQuantity(1);
