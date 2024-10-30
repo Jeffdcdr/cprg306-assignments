@@ -36,7 +36,7 @@ export default function NewItem({ onAddItem }) {
         placeholder="Item name"
         type="text"
         id="name"
-        required //name is required
+        required //name is required built in html validation
         value={name}
         onChange={(event) => setName(event.target.value)}
       />
@@ -95,14 +95,7 @@ export default function NewItem({ onAddItem }) {
           type="submit"
           value="Submit"
           className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-2 rounded"
-          // className={`${
-          //   name === ""
-          //     ? "bg-gray-500 "
-          //     : "bg-blue-500 hover:bg-blue-700"
-          // } text-white font-bold py-2 px-2 rounded`}
-          // onClick={() =>
-          //   name === "" ? alert("Please enter a name!") : handleSubmit()
-          // }
+         
         />
       </div>
     </form>
