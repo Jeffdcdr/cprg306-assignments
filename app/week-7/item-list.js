@@ -7,7 +7,7 @@ export default function ItemList({itemsJson}) {
   const [sortby, setSortby] = useState("name");
   const [groupedCategory, setGroupedCategory] = useState(null); // added to handle grouped category
 
-  let items = [...itemsJson].sort((a, b) => {
+  const items = [...itemsJson].sort((a, b) => {
     if (sortby === "name") {
       return a.name.localeCompare(b.name);
     } else if (sortby === "category") {
@@ -17,7 +17,7 @@ export default function ItemList({itemsJson}) {
     }
   });
 
-  const handleGroupedCategory = () => {
+  const handleGroupedCategory = () => { // function and button commented out because it is not used in this assignment
     const groupedItems = items.reduce((accumulator, item) => {
       if (!accumulator[item.category]) {
         accumulator[item.category] = [];
@@ -70,14 +70,14 @@ export default function ItemList({itemsJson}) {
           }`}
           onClick={() => handleItemClick("category")}
         />
-        <input
+        {/* <input
           type="button"
           value="Grouped Category"
           className={`cursor-pointer p-1 m-2 w-40 rounded-md ${
             sortby === "grouped category" ? "bg-sky-600" : "bg-sky-800"
           }`}
           onClick={handleGroupedCategory}
-        />
+        /> */}
       </div>
 
       {groupedCategory ? (
