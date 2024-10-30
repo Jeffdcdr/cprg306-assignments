@@ -62,19 +62,19 @@ export default function NewItem({ onAddItem }) {
           <option value="other">Other</option>
         </select>
       
-        <div  className=" flex justify-between p-2 mt-1 mb-1 mr-1 rounded-md bg-white text-black w-36">
+        <div  className=" flex justify-between p-1 mt-1 mb-1 mr-1 rounded-md bg-white text-black w-36">
         <h3 className="p-2"> {quantity}</h3>
         
-        <div>
+        <div className="flex space-x-0">
         <input //increment button
           type="button"
           value="▲"
           onClick={increment}
-          className={`${
+          className={`${ 
             quantity === 20
               ? "bg-gray-500 cursor-not-allowed"
               : "bg-green-500 hover:bg-green-700"
-          } text-white font-bold p-2 rounded`}
+          } text-white font-bold m-2 rounded`}
         />
         <input //decrement button
           type="button"
@@ -84,7 +84,7 @@ export default function NewItem({ onAddItem }) {
             quantity === 1
               ? "bg-gray-500 cursor-not-allowed"
               : "bg-red-500 hover:bg-red-700"
-          } text-white font-bold p-2 rounded`}
+          } text-white font-bold m-2 rounded`}
         />
         </div>
         </div>
