@@ -13,10 +13,9 @@ export default function NewItem({ onAddItem }) {
   const handleSubmit = (event) => {
     event.preventDefault();
     let item = { name, quantity, category };
-    console.log(item); // eventually save to a database
-
-    // alert(`You added ${quantity} ${name} to the ${category} category`);
-    onAddItem(id, name, quantity item); 
+    const newId = Math.floor(Math.random() * 1000000);
+    const NewItem = { id: newId, name: name, category: category, quantity: quantity };
+    onAddItem(NewItem);
 
     //reset form
     setQuantity(1);

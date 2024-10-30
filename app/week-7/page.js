@@ -17,6 +17,7 @@ export default function Page() {
     <main className="p-2">
       <h1 className="m-4 text-3xl font-bold">Shopping List Week 7</h1>
       <NewItem onAddItem={handleAddItem} />
+      <ItemList itemsJson={items} />
       
       <div className="ml-4">
         Go back to{" "}
