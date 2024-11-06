@@ -1,4 +1,6 @@
-export default function Item({ name, quantity, category }) {
+export default function Item({itemObj}) {
+  const { name, quantity, category } = itemObj;
+
   return (
     <section className="p-2 m-4 bg-gray-900 max-w-sm">
       <h2 className="text-xl font-bold">{name}</h2>
