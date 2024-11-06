@@ -1,5 +1,4 @@
 import Link from "next/link";
-import Item from "./items";
 import ItemList from "./item-list";
 
 
