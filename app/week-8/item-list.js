@@ -1,10 +1,10 @@
 "use client";
 
 import { useState } from "react";
-// import itemsJson from "./items.json";
+
 import Item from "./item";
 
-export default function ItemList({ items }) {
+export default function ItemList({ items, onItemSelect }) {
   const [sortby, setSortby] = useState("name");
 
   const sortedItems = [...items].sort((a, b) => {
@@ -12,10 +12,9 @@ export default function ItemList({ items }) {
       return a.name.localeCompare(b.name);
     } else if (sortby === "category") {
       return a.category.localeCompare(b.category);
-    } else {
+    } 
       return 0;
-    }
-  });
+    });
 
   const handleItemClick = (value) => {
     setSortby(value);
@@ -49,7 +48,7 @@ export default function ItemList({ items }) {
       <div>
         <ul>
           {sortedItems.map((item) => (
-            <Item key={item.id} itemObj={item} />
+            <Item key={item.id} itemObj={item} onSelect={onItemSelect}/>
           ))}
         </ul>
       </div>
