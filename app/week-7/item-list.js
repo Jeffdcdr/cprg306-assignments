@@ -2,10 +2,10 @@
 
 import { useState } from "react";
 // import itemsJson from "./items.json";
+import Item from "./item";
 
 export default function ItemList({ items }) {
   const [sortby, setSortby] = useState("name");
-  
 
   const sortedItems = [...items].sort((a, b) => {
     if (sortby === "name") {
@@ -18,7 +18,7 @@ export default function ItemList({ items }) {
   });
 
   const handleItemClick = (value) => {
-    setSortby(value);    
+    setSortby(value);
   };
 
   return (
@@ -46,16 +46,13 @@ export default function ItemList({ items }) {
         />
       </div>
 
-      <ul>
-        {sortedItems.map((item) => (
-          <li key={item.id} className="p-2 m-4 bg-zinc-900 max-w-sm">
-            <h2 className="text-xl font-semibold"> {item.name} </h2>
-            <div className="text-sm">
-              Buy {item.quantity} in {item.category}
-            </div>
-          </li>
-        ))}
-      </ul>
+      <div>
+        <ul>
+          {sortedItems.map((item) => (
+            <Item key={item.id} itemObj={item} />
+          ))}
+        </ul>
+      </div>
     </div>
   );
 }
