@@ -15,7 +15,7 @@ export default function NewItem() {
     let item = { name, quantity, category };
     console.log(item); // eventually save to a database
 
-    alert(`You added ${quantity} ${name} to the ${category} category`);
+    alert(`You added ${quantity} ${name} \nto the ${category} category`);
 
     //reset form
     setQuantity(1);
