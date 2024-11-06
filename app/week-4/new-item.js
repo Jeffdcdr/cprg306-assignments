@@ -5,21 +5,15 @@ import { useState } from "react";
 export default function NewItem() {
   let [quantity, setQuantity] = useState(1);
 
-  // for increment function
-  // let increment = () => {
-  //   if (quantity < 20) setQuantity(quantity + 1);
-  // };
-  
-  let increment = () => quantity < 20? setQuantity(quantity + 1) : null;
+  // 2 types of IF Statements the other one is using ternary operator (increment)
+  let increment = () => (quantity < 20 ? setQuantity(quantity + 1) : null);
 
   // for decrement function
-  //   let decrement = () => {
-  //     if (quantity > 1) setQuantity(quantity - 1);
-  //   };
+  let decrement = () => {
+    if (quantity > 1) setQuantity(quantity - 1);
+  };
 
-  let decrement = () => quantity > 1 ? setQuantity(quantity - 1) : null;
-  
-
+  // let decrement = () => quantity > 1 ? setQuantity(quantity - 1) : null;
 
   // for reset function
   const reset = () => setQuantity(1);
@@ -39,8 +33,7 @@ export default function NewItem() {
         } text-white font-bold py-2 px-2 rounded`}
         //   disabled={quantity === 20}
       >
-        {/* Increment */}
-        +
+        {/* Increment */}+
       </button>
 
       <button
@@ -53,8 +46,7 @@ export default function NewItem() {
         } text-white font-bold py-2 px-2 rounded`}
         //   disabled={quantity === 1}
       >
-        {/* Decrement */}
-        -
+        {/* Decrement */}-
       </button>
 
       <button
