@@ -1,6 +1,6 @@
 import Link from "next/link";
 import ItemList from "./item-list";
-import Item from "./items";
+
 
 
 export default function Page() {

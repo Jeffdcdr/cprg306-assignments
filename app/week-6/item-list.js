@@ -1,5 +1,6 @@
 "use client";
 
+import Item from "./item";
 import { useState } from "react";
 import itemsJson from "./items.json";
 
@@ -7,15 +8,15 @@ export default function ItemList() {
   const [sortby, setSortby] = useState("name");
   const [groupedCategory, setGroupedCategory] = useState(null); // added to handle grouped category
 
-  let items = [...itemsJson].sort((a, b) => {
+  const items = [...itemsJson].sort((a, b) => {
     if (sortby === "name") {
       return a.name.localeCompare(b.name);
     } else if (sortby === "category") {
       return a.category.localeCompare(b.category);
-    } else {
+    } 
       return 0;
     }
-  });
+  );
 
   const handleGroupedCategory = () => {
     const groupedItems = items.reduce((accumulator, item) => {
@@ -85,12 +86,7 @@ export default function ItemList() {
                 </h3>
                 <ul>
                   {groupedCategory[category].map((item) => (
-                    <li key={item.id} className="p-2 m-4 bg-zinc-900 max-w-sm">
-                      <h2 className="text-xl font-semibold"> {item.name} </h2>
-                      <div className="text-sm">
-                        Buy {item.quantity} in {item.category}
-                      </div>
-                    </li>
+                    <Item key={item.id} itemObj={item} />                    
                   ))}
                 </ul>
               </li>
@@ -100,12 +96,7 @@ export default function ItemList() {
       ) : (
         <ul>
           {items.map((item) => (
-            <li key={item.id} className="p-2 m-4 bg-zinc-900 max-w-sm">
-              <h2 className="text-xl font-semibold"> {item.name} </h2>
-              <div className="text-sm">
-                Buy {item.quantity} in {item.category}
-              </div>
-            </li>
+            <Item key={item.id} itemObj={item} />            
           ))}
         </ul>
       )}
