@@ -31,15 +31,11 @@ export default function ItemList() {
       .sort((a, b) => a.localeCompare(b))
       .reduce((accumulator, category) => {
         accumulator[category] = groupedItems[category];
+        accumulator[category].sort((a, b) => a.name.localeCompare(b.name)); // this sorts the items inside each category
         return accumulator;
       }, {});
     setGroupedCategory(sortedGroupedItems);
     setSortby("grouped category");
-
-    // Sort items in each category
-    Object.keys(groupedItems).forEach((category) => {
-      groupedItems[category].sort((a, b) => a.name.localeCompare(b.name));
-    });
   };
 
   const handleItemClick = (value) => {
@@ -51,8 +47,7 @@ export default function ItemList() {
     <div>
       <div className="ml-4">
         <label htmlFor="sortby" className="text-xl">
-          Sort by: 
-          {/* {sortby} */}
+          Sort by:
         </label>
         <input
           type="button"
