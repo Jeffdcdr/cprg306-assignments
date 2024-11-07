@@ -4,7 +4,7 @@ export default function Item({itemObj, onSelect}) {
   return (
     <section className="p-2 m-4 bg-gray-900 max-w-sm"
       onClick={() => {
-        alert(`You selected ${name}`);
+        // alert(`You selected ${name}`);
         onSelect(itemObj)
       }}>
       <h2 className="text-xl font-bold">{name}</h2>

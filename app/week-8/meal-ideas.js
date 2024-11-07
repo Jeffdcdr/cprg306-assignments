@@ -1,6 +1,7 @@
 "use client";
 
 import { useState, useEffect } from "react";
+import Image from "next/image";
 
 export default function MealIdeas({ingredient}) {
   const [meals, setMeals] = useState([]);
@@ -17,13 +18,14 @@ export default function MealIdeas({ingredient}) {
     }
   }
 
-  const loadMealIdeas = (ingredient) => {
-    fetchMealIdeas(ingredient);
-    setMeals(meals);
-  };
+//   const loadMealIdeas = () => {
+//     fetchMealIdeas(ingredient);
+//     setMeals(meals);
+//   };
 
   useEffect(() => {
-    loadMealIdeas();
+    // loadMealIdeas(ingredient);
+    fetchMealIdeas(ingredient);    
   }, [ingredient]);
 
   return (
@@ -34,11 +36,11 @@ export default function MealIdeas({ingredient}) {
                     {meals.map(meal => (
                         <li key={meal.idMeal}>
                             <h3>{meal.strMeal}</h3>
-                            {/* <img src={meal.strMealThumb} alt={meal.strMeal} style={{ width: '100px', height: '100px' }} /> */}
+                            <img src={meal.strMealThumb} alt={meal.strMeal} width={150} height={150} />
                         </li>
                     ))}
                 </ul>
-            ) : <p className='text-2xl'>No meal ideas available for "{ingredient}".</p>}
+            ) : <p className='text-2xl'>No meal ideas available for &quot;{ingredient}&quot;.</p>}
         </div>
     );
 }
