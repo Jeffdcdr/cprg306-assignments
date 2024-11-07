@@ -36,7 +36,7 @@ export default function MealIdeas({ingredient}) {
                     {meals.map(meal => (
                         <li key={meal.idMeal}>
                             <h3>{meal.strMeal}</h3>
-                            <img src={meal.strMealThumb} alt={meal.strMeal} width={150} height={150} />
+                            <Image src={meal.strMealThumb} alt={meal.strMeal} width={150} height={150} />
                         </li>
                     ))}
                 </ul>
@@ -44,3 +44,5 @@ export default function MealIdeas({ingredient}) {
         </div>
     );
 }
+
+
