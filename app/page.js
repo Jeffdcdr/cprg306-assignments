@@ -32,6 +32,9 @@ export default function Home(){
           <Link href="/week-9/">Week 9</Link>{" "}
         </li>
         <li>
+          <Link href="/week-9-context/">Week 9 Context</Link>{" "}
+        </li>
+        <li>
           <Link href="/week-9/">Week 10</Link>{" "}
         </li>
         <li>
