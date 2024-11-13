@@ -33,7 +33,7 @@ export default function Home(){
         </li>
         <li>
           <Link href="/week-9-context/">Week 9 Context</Link>{" "}
-        </li>
+        </li>        
         <li>
           <Link href="/week-9/">Week 10</Link>{" "}
         </li>
